@@ -15,14 +15,16 @@ import org.testng.Reporter;
 
 public class Google_testNg_demo {
 	WebDriver driver;
+
 	@BeforeSuite
-	public void test_google(){
-		//System.out.println("THe google site is going to be tested");
+	public void test_google() {
+		// System.out.println("THe google site is going to be tested");
 		Reporter.log("TestNG reports and logs :-->The google site is going to be tested", true);
-		
+
 	}
+
 	@BeforeMethod
-	public void setUp(){
+	public void setUp() {
 		driver = new FirefoxDriver();
 		String url;
 		url = "https://www.google.com/";
@@ -32,72 +34,81 @@ public class Google_testNg_demo {
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		Reporter.log("TestNG reports and logs :--> This one is before the method", true);
-		
+
 	}
-	@Test(dependsOnMethods = "test_Mail" ,groups ="Get_title")
-	public void get_url(){
-		
+
+	@Test(dependsOnMethods = "test_Mail", groups = "Get_title")
+	public void get_url() {
+
 		String title;
 		title = driver.getTitle();
-		//System.out.println("Title of the webpage is  :"+title);
-		Reporter.log("TestNG reports and logs :--> test 4 : "+title,true);
-		}
+		// System.out.println("Title of the webpage is :"+title);
+		Reporter.log("TestNG reports and logs :--> test 4 : " + title, true);
+	}
+
 	@Test(groups = "test_logo")
-	public void test_logo(){
+	public void test_logo() {
 		boolean logo;
 		logo = driver.findElement(By.xpath("//*[@id='hplogo']")).isDisplayed();
-		//System.out.println("Logo is displayed  :"+logo);
-		Reporter.log("TestNG reports and logs :--> test 3  :" +logo, true);
+		// System.out.println("Logo is displayed :"+logo);
+		Reporter.log("TestNG reports and logs :--> test 3  :" + logo, true);
 	}
+
 	@Test(groups = "Gmail")
-	public void test_Mail(){
+	public void test_Mail() {
 		boolean mail;
 		mail = driver.findElement(By.linkText("mail")).isDisplayed();
-		//System.out.println("Gmail is Displayed  :"+mail);
-		Reporter.log("TestNG reports and logs :--> test 1 :" +mail, true);
+		// System.out.println("Gmail is Displayed :"+mail);
+		Reporter.log("TestNG reports and logs :--> test 1 :" + mail, true);
 	}
-	@Test( enabled = true, groups = "google_serach")
-	public void test_google_Search(){
+
+	@Test(enabled = true, groups = "google_serach")
+	public void test_google_Search() {
 		String search;
 		search = "//input[@value ='Google Search' and @type='submit']";
 		boolean test_search;
 		test_search = driver.findElement(By.xpath(search)).isSelected();
-		//System.out.println("Google search is Selected  :"+test_search);
-		Reporter.log("TestNG reports and logs :--> test 2 :  " +test_search, true);
+		// System.out.println("Google search is Selected :"+test_search);
+		Reporter.log("TestNG reports and logs :--> test 2 :  " + test_search, true);
 	}
+
 	@Test(groups = "test")
-	public void sample_test(){
+	public void sample_test() {
 		Reporter.log("TEstNg Reports and logs:----> Test1");
 	}
+
 	@Test(groups = "test")
-	public void sample_test1(){
+	public void sample_test1() {
 		Reporter.log("TEstNg Reports and logs:----> Test2");
 	}
+
 	@Test(groups = "test")
-	public void sample_test2(){
+	public void sample_test2() {
 		Reporter.log("TEstNg Reports and logs:----> Test3");
 	}
+
 	@Test(groups = "test")
-	public void sample_test3(){
+	public void sample_test3() {
 		Reporter.log("TEstNg Reports and logs:----> Test4");
 	}
+
 	@AfterMethod
-	public void  end_test(){
-		Reporter.log("TestNG reports and logs :--> After Method :",true);
+	public void end_test() {
+		Reporter.log("TestNG reports and logs :--> After Method :", true);
 		driver.close();
-		//driver.quit();
-		
+		// driver.quit();
+
 	}
+
 	@AfterSuite
-	public void test_over(){
-		//System.out.println("All the tests are executed nicely ");
-		Reporter.log("TestNG Reports and logs :---- > All the tests are executed nicely",true);
-		
+	public void test_over() {
+		// System.out.println("All the tests are executed nicely ");
+		Reporter.log("TestNG Reports and logs :---- > All the tests are executed nicely", true);
+
 	}
-	
 
 }
 // test mail
 // test google search
 // test logo
-//test title
+// test title
