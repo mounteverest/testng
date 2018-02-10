@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Unit Testing">
+	<test name="Multiple test case Execution">
+		<classes>
+			<class name="testNG_framework.Google_testNg_demo">
+			</class>
+			<class name="testNG_framework.InvocationCount">
+			</class>
+			<!--  <class name="testNG_framework.ExpectedException">
+			</class> 
+			<class name="testNG_framework.Assert_features">
+			</class>-->
+		</classes>
+	</test>
+</suite>
